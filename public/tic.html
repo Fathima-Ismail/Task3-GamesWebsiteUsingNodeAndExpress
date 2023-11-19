@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Tic tac toe - XOXO" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"
+    charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="tic.css" />
+  <title>Tic-Tac-Toe</title>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body align="center">
+  <br><br>
+  <h1>Mini Game Arena Presents</h1>
+  <h2>Tic-Tac-Toe</h2>
+  <br>
+  <table id="board">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <script type="text/javascript" src="tic.js"></script>
+  <br>
+  <button id="Back" onclick="func()">Go To Home Page</button>
+  <script>
+    function func() {
+      history.back();
+    }
+  </script>
+  <script>
+    const socket = io(); // Establish a connection to the Socket.IO server
+
+    // Sending a message to the server
+    socket.emit('chat message', 'Hello, Server!');
+
+    // Receiving a message from the server
+    socket.on('connect', () => {
+      alert('Connected to the server');
+    });
+  </script>
+</body>
+
+</html>

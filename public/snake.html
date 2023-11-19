@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" , content="width=device-width, initial-scale=1.0">
+    <title>Snake Game with Mini Game Arena</title>
+    <link rel="stylesheet" href="snake.css">
+    <script src="snake.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body bgcolor="black">
+    <h1 class="instructions">Mini Game Arena Presents
+        <div class="title">snake game</div>
+        <h4 class="instructions">Intructions:
+            <br class="instructions">Kindly refresh the page when it's GAME OVER.
+            <br class="instructions">Use arrow keys of your keyboard to move the snake (black coloured object).
+            <br class="instructions">Whenever snake consumes food (red coloured target), it's length will increase.
+            <br class="instructions">Game gets over when snake hits the boundary or it's own self.
+        </h4>
+        <h3 class="instructions">Happy Gaming</h3>
+        <br>
+    </h1>
+    <canvas id="board"></canvas>
+    <br><br>
+    <button align="center" id="Back" onclick="func()">Go To Home Page</button>
+    <script>
+        function func() {
+            history.back();
+        }
+    </script>
+    <script>
+        const socket = io(); // Establish a connection to the Socket.IO server
+
+        // Sending a message to the server
+        socket.emit('chat message', 'Hello, Server!');
+
+        // Receiving a message from the server
+        socket.on('connect', () => {
+            alert('Connected to the server');
+        });
+    </script>
+</body>
+
+</html>
